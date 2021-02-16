@@ -1,0 +1,104 @@
+% \documentclass[14pt]{beamer}
+\documentclass{beamer}
+% \documentclass[aspectratio=169]{beamer}
+
+\usetheme{Copenhagen}
+% \usetheme{Boadilla}
+% \usecolortheme{beaver}
+\setbeamercolor{alerted text}{fg=orange}
+\setbeamercolor{background canvas}{bg=white}
+\setbeamercolor{block body alerted}{bg=normal text.bg!90!black}
+\setbeamercolor{block body}{bg=normal text.bg!90!black}
+\setbeamercolor{block body example}{bg=normal text.bg!90!black}
+\setbeamercolor{block title alerted}{use={normal text,alerted text},fg=alerted text.fg!75!normal text.fg,bg=normal text.bg!75!black}
+% \setbeamercolor{block title}{bg=blue}
+\setbeamercolor{block title example}{use={normal text,example text},fg=example text.fg!75!normal text.fg,bg=normal text.bg!75!black}
+\setbeamercolor{fine separation line}{}
+\setbeamercolor{frametitle}{fg=white}
+\setbeamercolor{item projected}{fg=white}
+\setbeamercolor{normal text}{bg=white,fg=black}
+\setbeamercolor{palette sidebar primary}{use=normal text,fg=normal text.fg}
+\setbeamercolor{palette sidebar quaternary}{use=structure,fg=structure.fg}
+\setbeamercolor{palette sidebar secondary}{use=structure,fg=structure.fg}
+\setbeamercolor{palette sidebar tertiary}{use=normal text,fg=normal text.fg}
+\setbeamercolor{section in sidebar}{fg=brown}
+\setbeamercolor{section in sidebar shaded}{fg=grey}
+\setbeamercolor{separation line}{}
+\setbeamercolor{sidebar}{bg=red}
+\setbeamercolor{sidebar}{parent=palette primary}
+
+\setbeamercolor{structure}{bg=black, fg=white!30!blue!70!green}
+
+\setbeamercolor{subsection in sidebar}{fg=brown}
+\setbeamercolor{subsection in sidebar shaded}{fg=grey}
+\setbeamercolor{title}{fg=white}
+\setbeamercolor{titlelike}{fg=white}
+
+\setbeamerfont{bibliography item}{size=\tiny}
+\setbeamerfont{bibliography entry author}{size=\tiny}
+\setbeamerfont{bibliography entry title}{size=\tiny}
+\setbeamerfont{bibliography entry location}{size=\tiny}
+\setbeamerfont{bibliography entry note}{size=\tiny}
+
+% Szép kék
+% \setbeamercolor{structure}{bg=black, fg=white!10!green!40!blue}
+
+\frenchspacing
+
+% Language packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[magyar]{babel}
+
+% AMS
+\usepackage{amssymb,amsmath}
+
+% Graphic packages
+\usepackage{graphicx}
+
+% Syntax highlighting
+\usepackage{listings}
+
+\usepackage{tikz}
+
+\title[Adatbázis rendszerek MSc gyakorlat]{}
+\author[Nagy Dániel Zoltán JJ181J]{}
+
+% ==============
+\begin{document}
+% ==============
+
+% --------------------
+\begin{frame}[fragile]
+\frametitle{1.6 feladat}
+Adott az alábbi tábla:\\
+KÖNYV (isbn C(20) PK, cim C(40), targy C(30), ar INT)
+
+
+Adja meg az alábbi műveletek relációs algebrai alakját.
+
+
+- könyvek címei
+\begin{align*}
+\Pi_{\text{cim}}{\text{(KÖNYV)}}
+\end{align*}
+- a 2000-nél drágább könyvek adatai
+\begin{align*}
+\sigma_{\text{ar}>2000}{\text{(KÖNYV)}}
+\end{align*}
+- az 1000-nél olcsóbb könyvek címei
+\begin{align*}
+\Pi_{\text{cim}}(\sigma_{\text{ar}<1000}{\text{(KÖNYV)}})
+\end{align*}
+- a tárgyak nevei
+\begin{align*}
+\Pi_{\text{targy}}{\text{(KÖNYV)}}
+\end{align*}
+- az ‘AB’ tárgyú könyvek címe és ára
+\begin{align*}
+\Pi_{\text{cim, ar}}(\sigma_{\text{targy = 'AB'}}{\text{(KÖNYV)}})
+\end{align*}
+
+\end{frame}
+
+\end{document}
