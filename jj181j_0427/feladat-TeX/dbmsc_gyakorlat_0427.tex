@@ -1,0 +1,110 @@
+\documentclass[a4paper, 12pt]{article}
+
+% Set margins
+\usepackage[hmargin=2cm, vmargin=2cm]{geometry}
+
+\frenchspacing
+
+% Language packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[magyar]{babel}
+
+
+% AMS
+\usepackage{amssymb,amsmath}
+
+% Graphic packages
+\usepackage{graphicx}
+
+% Colors
+\usepackage{color}
+\usepackage[usenames,dvipsnames]{xcolor}
+
+% Enumeration
+\usepackage{enumitem}
+
+% C code
+\usepackage{xcolor}
+\usepackage{listings}
+
+% Hyperref
+\usepackage{hyperref}
+
+\title{\vskip -30pt Adatbázis rendszerek MSc (GEIAL521M)\\\LARGE{\textbf{MongoDB gyakorlat}}}
+\date{\vskip -30pt 2021. április 27.}
+\author{}
+
+\begin{document}
+\maketitle
+
+\section*{1. feladat}
+Hozzon létre egy kollekciót, amelyben zenei albumokat tárol.\\
+Egy-egy albumot az alábbi tulajdonságokkal jellemezhetünk:
+\begin{itemize}[noitemsep]
+	\item cím
+	\item előadó
+	\item ország
+	\item megjelenés éve
+	\item műfaj
+	\item stílus(ok)
+	\item ár
+\end{itemize}
+Esetünkben az \_id lehet globális/gyári is.
+
+\begin{enumerate}[label=\textbf{\alph*)}]
+\item Vigyen fel adatokat, amelyekkel a továbbiakban dolgozhat!
+\item Az albumokon hajtson végre szűrési feltételeket:
+	  \begin{itemize}[label=-]
+	  \item Kérje le az 1971-nél frissebb albumok címeit és megjelenési éveit!
+	  \item Kérje le a 21\$-nál olcsóbb angol albumok címeit és árait!
+	  \item Kérje le a legolcsóbb album adatait!
+	  \end{itemize}
+\item Hajtson végre módosító műveleteket az alábbiak szerint:
+	  \begin{itemize}[label=-]
+	  \item Módosítsa egy tetszőleges album címét!
+	  \item Egy tetszőleges album stílusai közé vigyen fel egy új stílust!
+	  \item Egy akció keretében a 70-es évekbeli Rock műfajú albumok árai 20$\%$-al csökkennek.\\Végezze el a szükséges módosításokat!
+	  \item Adjon mindegyik albumhoz egy új mezőt, és írjon be mindegyikbe egy-egy random számot!
+	  \end{itemize}
+\end{enumerate}
+
+\section*{2. feladat}
+Hozzon létre egy új kollekciót, amelyben az előadók adatait tárolja.\\
+Az egyes előadókat a következő tulajdonságok jellemzik:
+\begin{itemize}[noitemsep]
+	\item név
+	\item ország
+\end{itemize}
+\begin{enumerate}[label=\textbf{\alph*)}]
+\item Vigye fel az 1. feladatban feltöltött albumok előadóinak az adatait!
+\newpage \item Írjon egy olyan szerveroldali függvényt, amely elvégzi a következő módosításokat az albumok kollekcióján:
+	  \begin{itemize}[label=-]
+	  \item az előadó neve helyére az albumhoz tartozó előadó \_id-jét redeli.
+	  \item az ország mezőket törli, hiszen az előadó adatai között már szerepelnek.
+	  \end{itemize}
+\item Írjon egy olyan szerveroldali függvényt, amely segítségével egy kiválaszott műfaj százalékos árcsökkentését elvégezhetjük.\\Az eredményt egy új kollekcióba mentse, ne írja felül az eredeti adatokat!
+\item Írjon egy olyan függvényt, amely lekérdezi az átlagárnál drágább albumok címeit!
+\item Hajtson végre aggregációs műveleteket
+	  \begin{itemize}[label=-]
+	  \item Számítsa ki az egyes műfajokhoz tartozó átlagárat forintban (1 USD 300 magyar forintnak felel meg)!
+	  \item Számolja meg, hogy az egyes műfajokban hány 20\$-nál drágább album van és az eredményt rendezze darabszám szerinti csökkenő sorrendben!
+	  \item Kérdezze le a legolcsóbb albumot az előadó adataival kiegészítve!
+	  \item Keresse meg, hogy mely előadóhoz tartozik a legtöbb album, majd írassa ki az előadó nevét és a hozzá tartozó album címek listáját, valamint a legolcsóbb lemezének az árát!
+	  \end{itemize}
+\end{enumerate}
+
+\section*{3. feladat}
+Írjon egy Python nyelvű programot, amely az alapvető CRUD(Create Read Update Delete) műveleteket tudja eszközölni a fentiekben létrehozott adatbázison!\\
+Néhány javasolt funkció:
+\begin{enumerate}
+	\item Albumok kilistázása
+	\item Előadók kilistázása
+	\item Új előadó felvitele
+	\item Album címének módosítása
+	\item Album törlése cím alapján
+\end{enumerate}
+Létesítsen kapcsolatot az adatbázissal és valósítsa meg a felsorolt funkciókat!\\
+A megoldás során javasolt a \texttt{PyMongo} használata.
+
+\end{document}
