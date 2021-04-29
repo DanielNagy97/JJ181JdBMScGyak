@@ -83,7 +83,7 @@ db.system.js.save(
             var query = db.albums.find({ price: { $gt: atlag } });
 
             while (query.hasNext()) {
-                print(query.next())
+                print(query.next().title)
             }
         }
     }

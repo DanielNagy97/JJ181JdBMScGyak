@@ -1,9 +1,9 @@
 import pymongo as mongo
 import pandas as pd
 
-client = mongo.MongoClient("localhost", 27017)
+client = mongo.MongoClient("localhost", 9999)
 
-db = client.jj181j
+db = client.DB_MSC_jj181j
 
 while True:
     print("----Menu----")
